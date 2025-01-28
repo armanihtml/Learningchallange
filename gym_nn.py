@@ -3,6 +3,7 @@ import torch
 import numpy as np
 from torch import nn, distributions, optim
 import torch.nn.functional as F
+import pygame
 
 
 class PolicyNetwork(nn.Module):
@@ -74,7 +75,7 @@ def main(env):
     MAX_EPOCHS = 500
     DISCOUNT_FACTOR = 0.99
     N_TRIALS = 25
-    REWARD_THRESHOLD = 999
+    REWARD_THRESHOLD = 475
     PRINT_INTERVAL = 10
     INPUT_DIM = env.observation_space.shape[0]
     HIDDEN_DIM = 128
@@ -100,5 +101,8 @@ env1 = gym.make("CartPole-v1")
 done1 = False
 observation1, info1 = env1.reset(seed=1111)
 main(env1)
-
-
+env1 = gym.make("CartPole-v1", render_mode="human")
+obs, info = env1.reset()
+done = False
+main(env1)
+env1.close()  # Close the environment after the test
