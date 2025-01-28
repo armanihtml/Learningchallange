@@ -3,6 +3,14 @@ import matplotlib.pyplot as plt
 import time
 
 
+# TODO: Add finish
+# TODO: Random movement
+# TODO: Delete player visual from previous spot
+# TODO: Make it so that running into wall makes them not move instead of crashing
+# TODO: Make running into previous place not crashing
+# TODO: Make a maximum amount of steps to explore maze
+
+
 # Create a grid (maze)
 def create_maze():
     maze = np.array([
@@ -22,7 +30,7 @@ def display_maze(maze, player_position=None, visited=None):
         for pos in visited:
             plt.scatter(pos[1], pos[0], color='blue', s=50)  # Mark visited cells
     if player_position:
-        # Add the player (let's use a red circle for the player)
+        # Add the player (red circle for the player)
         plt.scatter(player_position[1], player_position[0], color='red', s=150)
     plt.xticks([]), plt.yticks([])  # Remove axis ticks
     plt.draw()
@@ -54,7 +62,7 @@ def explore_maze(x, y, maze, visited, path, start_position):
     print(f"Hit obstacle or dead-end at ({x}, {y}). Restarting from start...")
     time.sleep(1)  # Pause to show restart
     display_maze(maze, player_position=start_position, visited=visited)
-    explore_maze(start_position[0], start_position[1], maze, visited, path, start_position)
+    # explore_maze(start_position[0], start_position[1], maze, visited, path, start_position)
 
 
 # Main function
@@ -72,7 +80,8 @@ def run_game():
     explore_maze(start_position[0], start_position[1], maze, visited, path, start_position)
 
     plt.ioff()  # Turn off interactive mode
-    plt.show()
+    # plt.show()
+    print(path)
 
 
 # Run the game
