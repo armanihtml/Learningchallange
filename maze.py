@@ -80,9 +80,10 @@ def run_game():
     explore_maze(start_position[0], start_position[1], maze, visited, path, start_position)
 
     plt.ioff()  # Turn off interactive mode
-    # plt.show()
+    plt.show()
     print(path)
 
 
 # Run the game
 run_game()
+# https://www.datacamp.com/tutorial/reinforcement-learning-with-gymnasium
