@@ -226,6 +226,7 @@ class BlackjackAgent:
         next_obs: tuple[int, int, bool],
     ):
         """Updates the Q-value of an action."""
+
         future_q_value = (not terminated) * np.max(self.q_values[next_obs])
         temporal_difference = (
             reward + self.discount_factor * future_q_value - self.q_values[obs][action]
